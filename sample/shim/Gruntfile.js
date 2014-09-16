@@ -74,6 +74,11 @@ module.exports = function (grunt) {
 				banner: "<%= " + outprop + ".header%>",
 				sourceMap: true
 			},
+			initialLayer: {
+				src: [
+					outdir + "<%= " + outprop + ".layerPath %>"
+				]
+			},
 			dist: {
 				src: "<%= " + outprop + ".modules.abs %>",
 				dest: outdir + "<%= " + outprop + ".layerPath %>"
@@ -81,10 +86,6 @@ module.exports = function (grunt) {
 		},
 
 		concat: {
-			options: {
-				banner: "<%= " + outprop + ".header%>",
-				sourceMap: true
-			},
 			dist: {
 				src: "<%= " + outprop + ".modules.abs %>",
 				dest: outdir + "<%= " + outprop + ".layerPath %>"
