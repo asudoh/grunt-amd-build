@@ -1,0 +1,8 @@
+{
+	"name": "Sample project with shim config",
+	"version": "0.1.0-dev",
+	"dependencies": {
+		"angular": "~1.2.21",
+		"angular-loader": "~1.2.21"
+	}
+}
