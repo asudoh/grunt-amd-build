@@ -15,3 +15,9 @@ results
 node_modules
 npm-debug.log
 tmp
+
+sample/shim/bower_components
+sample/shim/node_modules
+sample/shim/build
+sample/shim/tmp
+sample/shim/all.js
