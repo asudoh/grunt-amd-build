@@ -13,5 +13,12 @@ logs
 results
 
 node_modules
+bower_components
 npm-debug.log
 tmp
+build
+
+requirejs
+requirejs-text
+requirejs-dplugins
+ecma402

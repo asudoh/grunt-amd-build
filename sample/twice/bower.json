@@ -1,0 +1,7 @@
+{
+	"name": "Sample project built twice",
+	"version": "0.1.0-dev",
+	"dependencies": {
+		"ecma402": "master"
+	}
+}
