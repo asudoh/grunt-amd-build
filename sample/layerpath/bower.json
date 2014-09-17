@@ -1,0 +1,7 @@
+{
+	"name": "Sample project with layerPath specified",
+	"version": "0.1.0-dev",
+	"dependencies": {
+		"delite": "master"
+	}
+}
