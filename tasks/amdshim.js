@@ -34,28 +34,6 @@ module.exports = function (grunt) {
 		var shim = loaderConfig.shim;
 
 		if (shim) {
-			// First add AMD dependencies that should have no dependencies so they can be loaded first and in any order.
-			// cf: https://github.com/jrburke/requirejs/blob/7b83f238885109cb773b922efb8d53db652952d6/docs/api.html#L687
-			var amdDeps = [];
-			eachProp(shim, function (id, value) {
-				if (value.deps) {
-					value.deps.forEach(function (dep) {
-						if (!shim[dep] && amdDeps.indexOf(dep) === -1) {
-							amdDeps.push(dep);
-						}
-					});
-				}
-			});
-			amdDeps.forEach(function (dep) {
-				var value = {
-					filepath: utils.nameToFilepath(dep)
-				};
-				value.content = grunt.file.read(value.filepath);
-				layer.shim.push(value);
-			});
-
-
-
 			// flatten deps
 			var flatShim = {};
 
@@ -84,8 +62,6 @@ module.exports = function (grunt) {
 				flatShim[id] = newValue;
 			});
 
-
-			// Sort shims with respect to dependencies order.
 			var shimAry = Object.keys(flatShim).sort(function (shim1, shim2) {
 				var value1 = flatShim[shim1];
 				var value2 = flatShim[shim2];
@@ -99,7 +75,6 @@ module.exports = function (grunt) {
 				}
 			});
 
-			// Add the shims to the layer.
 			shimAry.forEach(function (id) {
 				var value = shim[id];
 
