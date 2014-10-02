@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 
 			paths: {
 				"angular": "../../../bower_components/angular/angular",
-				"angular-loader": "../../../bower_components/angular/angular-loader"
+				"angular-loader": "../../../bower_components/angular-loader/angular-loader"
 			},
 
 			shim: {
@@ -31,9 +31,7 @@ module.exports = function (grunt) {
 					exports: "angular",
 					deps: ["angular-loader"]
 				},
-				"angular-loader": {
-					exports: "angular-loader"
-				}
+				"angular-loader": {}
 			},
 
 			// Here goes the config for the amd plugins build process (has, i18n, ecma402...).
@@ -115,8 +113,9 @@ module.exports = function (grunt) {
 			layers = grunt.config(name).layers;
 
 		layers.forEach(function (layer) {
+			grunt.task.run("amdshim:" + layer.name + ":" + name + ":" + amdloader);
 			grunt.task.run("amddepsscan:" + layer.name + ":" + name + ":" + amdloader);
-			grunt.task.run("amdserialize:" + layer.name + ":" + name + ":" + amdloader + ":" + outprop);
+			grunt.task.run("amdserialize:" + layer.name + ":" + name + ":" + outprop);
 			grunt.task.run("concat"); // Not minifying for demonstration purpose
 			grunt.task.run("copy:plugins");
 		});
