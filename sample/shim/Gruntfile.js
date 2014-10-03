@@ -23,15 +23,20 @@ module.exports = function (grunt) {
 
 			paths: {
 				"angular": "../../../bower_components/angular/angular",
-				"angular-loader": "../../../bower_components/angular-loader/angular-loader"
+				"angular-loader": "../../../bower_components/angular-loader/angular-loader",
+				"angular-resource": "../../../bower_components/angular-resource/angular-resource",
+				"jquery": "../../../bower_components/jquery/dist/jquery"
 			},
 
 			shim: {
 				"angular": {
 					exports: "angular",
-					deps: ["angular-loader"]
+					deps: ["angular-loader", "jquery"]
 				},
-				"angular-loader": {}
+				"angular-loader": {},
+				"angular-resource": {
+					deps: ["angular"]
+				}
 			},
 
 			// Here goes the config for the amd plugins build process (has, i18n, ecma402...).

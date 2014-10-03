@@ -3,6 +3,8 @@
 	"version": "0.1.0-dev",
 	"dependencies": {
 		"angular": "~1.2.21",
-		"angular-loader": "~1.2.21"
+		"angular-loader": "~1.2.21",
+		"angular-resource": "~1.2.21",
+		"jquery": "~2.1.1"
 	}
 }
